@@ -1,0 +1,17 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Runtime logs
+*.log
+*.stdout.txt
+*.stderr.txt
+
+# Local generated artifacts
+__pycache__/
+.pytest_cache/
