@@ -1,5 +1,9 @@
 # COMSOL Project Guardrails Skill
 
+<p align="center">
+  <img src="assets/logo.png" alt="COMSOL Project Guardrails 徽标" width="220">
+</p>
+
 这是一个面向 AI agent 的 COMSOL 项目护栏型 skill，用于帮助 agent 在处理 COMSOL Multiphysics 项目时减少常见错误。
 
 它适用于 MPH 文件、COMSOL Java API 脚本、参数扫描、粒子追踪、冲蚀/腐蚀模拟、结果导出、报告生成、PPT 制作以及项目文件清理等任务。

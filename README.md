@@ -1,5 +1,9 @@
 # COMSOL Project Guardrails Skill
 
+<p align="center">
+  <img src="assets/logo.png" alt="COMSOL Project Guardrails logo" width="220">
+</p>
+
 [中文版本](README.zh-CN.md)
 
 A lightweight skill for agents working on COMSOL Multiphysics projects.
