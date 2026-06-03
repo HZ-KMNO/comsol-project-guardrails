@@ -9,6 +9,20 @@ description: Use when working on COMSOL Multiphysics MPH files, COMSOL Java API 
 
 Treat every COMSOL task as a traceable simulation workflow, not a file-editing task. First identify the authoritative model/data, then inspect the model tree, make one controlled change at a time, rerun or redraw the necessary result, and verify the exported artifact before reporting it.
 
+## Task Intake Guardrails
+
+Before starting a COMSOL automation or simulation task, collect or discover:
+
+- COMSOL version and the COMSOL-bundled Java/runtime path.
+- Authoritative MPH file path, or a clean work directory for a new model.
+- Local COMSOL documentation locations if available, especially the Application Programming Guide, Reference Manual, Java API index, and `ModelUtil` API page.
+- Any relevant MCP/tooling repository or helper server, but treat it as optional until installed and verified.
+- Physics objective, geometry/material assumptions, parameter ranges, study type, and expected outputs.
+- Quantitative acceptance criteria, such as loss, imbalance, pressure drop, erosion rate, convergence tolerance, or figure quality requirements.
+- Final deliverables: saved MPH, CSV/KPI tables, figures/GIFs, DOCX report, PPTX slides, or cleanup requirements.
+
+Do not hard-code sample local paths into reusable scripts or skills. Use user-provided paths, discovered paths, or placeholders such as `<COMSOL_ROOT>` and `<PROJECT_DIR>`.
+
 ## Workflow
 
 1. **Find the authoritative files first.** Locate the active MPH, scripts, exported data, figures, reports, and folders. Do not update an old duplicate because it happens to be easier to open.
@@ -21,13 +35,16 @@ Treat every COMSOL task as a traceable simulation workflow, not a file-editing t
 ## COMSOL API And Solver Guardrails
 
 - Use the COMSOL-provided Java/runtime and the project’s known `comsolcompile`/`comsolbatch` pattern. Normal system Java usually cannot load COMSOL APIs correctly.
+- Prefer official local COMSOL references when available: Application Programming Guide for automation workflow, Reference Manual for properties/features, Java API index for class documentation, and `ModelUtil` for model load/save and server lifecycle.
 - Query tags and labels before setting properties. COMSOL labels may be renamed by users while API tags remain machine-generated.
 - When an API property is uncertain, write a tiny probe script to list available properties/tags. Do not guess plot, export, feature, or solver property names.
 - Confirm study activation, solution datasets, time lists, parameter sweeps, and solver logs. A grayed, inactive, stale, or wrong dataset can silently produce misleading plots.
 - For transient flow or particle tracing, set release time, time step, and observation time from the physical travel scale. Do not reuse one trajectory result for different velocities or operating conditions.
+- For small geometric features or narrow gaps, use mesh refinement, refined sampling, and local zoom checks before trusting maxima or hotspot locations.
 - If a result is zero, undefined, nonphysical, or unstable, diagnose the cause: wrong variable, wrong boundary, missing feature, inactive study, stale dataset, inadequate mesh/time step, or model limitation. Do not hide it inside the report.
 - If a simplified model cannot directly compute a quantity, label the replacement as an engineering proxy. Define formula, unit, source variables, and interpretation. Never present a proxy as a directly solved physical variable.
 - State simplifications honestly, especially 2D geometry, missing solid domains, missing collision statistics, uncoupled physics, or mapped loads.
+- Continue the debug loop until the code runs, the model saves, and the acceptance criteria are either met or explicitly reported as unmet with evidence.
 
 ## Parameters, Units, And Physical Sanity
 
