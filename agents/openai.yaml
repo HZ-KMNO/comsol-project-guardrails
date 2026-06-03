@@ -1,0 +1,4 @@
+interface:
+  display_name: "COMSOL Project Guardrails"
+  short_description: "Guardrails for COMSOL models, exports, reports, and cleanup"
+  default_prompt: "Use this skill to audit COMSOL MPH files, Java API scripts, parameter sweeps, result exports, reports, or cleanup before making changes. Prioritize current datasets, verified outputs, clear units, proxy labeling, and conservative file operations."
