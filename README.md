@@ -1,5 +1,7 @@
 # COMSOL Project Guardrails Skill
 
+[中文版本](README.zh-CN.md)
+
 A lightweight skill for agents working on COMSOL Multiphysics projects.
 
 It provides practical guardrails for handling MPH files, COMSOL Java API scripts, parameter sweeps, particle tracing, corrosion/erosion simulations, result exports, reports, slide decks, and project cleanup.
